@@ -49,14 +49,18 @@ public class PhoneBookTester
       System.out.println("Goodbye");
     }else{
       PhoneEntry[] entries = pb.search(input.toUpperCase()); 
-      for(int i = 0; i < entries.length; i++){
-        System.out.println(entries[i].getName() + ": " + entries[i].getPhone());
+      if(entries != null){
+        for(int i = 0; i < entries.length; i++){
+          System.out.println(entries[i].getName() + ": " + entries[i].getPhone());
+        }
+      }else{
+        System.out.println("No matches found");
       }
     }
   }
 
   public static String getUserOption(){
-    System.out.println("Would you like to [search] for a name, [add] an entry, [delete] a listing, or [quit]?");
+    System.out.println("\nWould you like to [search] for a name, [add] an entry, [delete] a listing, or [quit]?");
     System.out.println("Please type your choice (without brackets).");
     Scanner scanner = new Scanner(System.in);
     return scanner.next();
